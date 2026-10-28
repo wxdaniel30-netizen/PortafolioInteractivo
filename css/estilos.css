@@ -1,0 +1,208 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f6fc;
+    color: #202b46;
+    overflow-x: hidden;
+}
+
+.navbar {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+header {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #172554, #2563eb);
+    color: white;
+    border-radius: 0 0 25px 25px;
+    animation: aparecer 1s ease-out;
+}
+
+header h1 {
+    max-width: 850px;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: bold;
+    animation: deslizar 1s ease-out;
+}
+
+header p {
+    margin-top: 15px;
+    font-size: 1.2rem;
+}
+
+h2 {
+    font-weight: bold;
+    color: #172554;
+}
+
+.proyecto {
+    min-height: 190px;
+    padding: 15px;
+    border: none;
+    border-radius: 18px;
+    background: white;
+    box-shadow: 0 8px 25px rgba(23, 37, 84, 0.12);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.tarjeta-rotar:hover {
+    transform: rotate(4deg);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.25);
+}
+
+.tarjeta-escalar:hover {
+    transform: scale(1.07);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.25);
+}
+
+.tarjeta-mover:hover {
+    transform: translateY(-12px) skewX(-2deg);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.25);
+}
+
+.perspectiva {
+    perspective: 1000px;
+    max-width: 400px;
+    min-height: 220px;
+}
+
+.tarjeta-3d {
+    min-height: 220px;
+    padding: 35px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: linear-gradient(135deg, #1e3a8a, #7c3aed);
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+    transition: transform 0.7s ease;
+}
+
+.tarjeta-3d:hover {
+    transform: rotateX(12deg) rotateY(-18deg);
+}
+
+.tarjeta-3d h3,
+.tarjeta-3d p {
+    transform: translateZ(35px);
+}
+
+.texto-animado {
+    margin: 25px 0;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: bold;
+    color: #2563eb;
+    animation: pulsar 2s ease-in-out infinite alternate;
+}
+
+.loader {
+    width: 55px;
+    height: 55px;
+    border: 6px solid #dbeafe;
+    border-top: 6px solid #2563eb;
+    border-radius: 50%;
+    animation: girar 1s linear infinite;
+}
+
+form {
+    padding: 25px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(23, 37, 84, 0.1);
+}
+
+form .btn {
+    padding: 12px;
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes deslizar {
+    from {
+        opacity: 0;
+        transform: translateY(-35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulsar {
+    from {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    to {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
+@keyframes girar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 576px) {
+    header {
+        min-height: 260px;
+        padding: 30px 15px;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .perspectiva {
+        width: 100%;
+    }
+
+    form {
+        padding: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
